@@ -24,6 +24,7 @@ public class Game {
             System.out.println("It's smaller than "+guess);
         }else{
             System.out.println("Damn, you're right!");
+            this.guessed = true;
         }
     }
 

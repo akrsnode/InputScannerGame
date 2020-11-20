@@ -18,10 +18,18 @@ public class GuessTheMovie {
             System.out.println("You have guessed ("+count+") wrong letters: "+wrongLetters);
             char inputChar = askForGuess();
             if(movieToGuess.indexOf(inputChar) >= 0) {
-                inputGuess[movieToGuess.indexOf(inputChar)] = inputChar;
+                for (int i=0; i<movieToGuess.length(); i++){
+                    if (movieToGuess.charAt(i) == inputChar) {
+                        inputGuess[i] = inputChar;
+                    }
+                }
             } else {
                 count++;
                 wrongLetters += inputChar+" ";
+            }
+            if (String.valueOf(inputGuess).equals(movieToGuess.toLowerCase())) {
+                guessing = false;
+                System.out.println("You've won!");
             }
         }
     }
